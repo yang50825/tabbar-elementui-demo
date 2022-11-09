@@ -15,7 +15,7 @@ export default {
   data() {
     return {
       tabList: [
-        // 底部导航的数据
+        // 底部导航的数据123
         {
           iconText: 'el-icon-document',
           text: '商品列表',
