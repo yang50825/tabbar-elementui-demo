@@ -1,28 +1,59 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <div>
+    <MyHeader title="tabbar案例-elementui版本"></MyHeader>
+    <div class="main_box">
+      <router-view></router-view>
+    </div>
+    <MyTabBar :arr="tabList"></MyTabBar>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
-
+import MyHeader from './components/MyHeader'
+import MyTabBar from './components/MyTabBar'
 export default {
-  name: 'App',
+  data() {
+    return {
+      tabList: [
+        // 底部导航的数据
+        {
+          iconText: 'el-icon-document',
+          text: '商品列表',
+          url: '/myGoodsList',
+        },
+        {
+          iconText: 'el-icon-search',
+          text: '商品搜索',
+          url: '/myGoodsSearch',
+        },
+        {
+          iconText: 'el-icon-user',
+          text: '我的信息',
+          url: '/myUserInfo',
+        },
+      ],
+    }
+  },
   components: {
-    HelloWorld
-  }
+    MyHeader,
+    MyTabBar,
+  },
 }
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+}
+
+.main_box {
+  margin-top: 45px;
+  margin-bottom: 50px;
 }
 </style>
